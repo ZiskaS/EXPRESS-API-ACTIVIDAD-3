@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "052d29b6-cf02-4a32-a085-92c273a16a4c",
+		"name": "ACTIVIDAD 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23204180"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Maur Exampel\",\n  \"email\": \"maur.exampel@email.com\",\n  \"password\": \"Weekend475758\",\n  \"bio\": \"Your bio (optional)\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "POST /api/users\n- No necesita estar autenticada\n- Recibe body JSON con los campos name, email, password y bio\n- Almacena el usuario en Base de Datos en memoria cifrando su contraseña"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"maur.exampel@email.com\",\n  \"password\": \"Weekend475758\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "2. POST /api/login\n- Recibe body con email, password\n- Devuelve HTTP 200 OK con token JWT de sesión si las credenciales son correctas\n- Devuelve HTTP 400 en caso de error en la validación de datos\n- Devuelve HTTP 401 si las credenciales no son correctas"
+			},
+			"response": []
+		}
+	]
+}
